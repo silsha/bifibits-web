@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 	{% block body %}
 		<h1>Status</h1>
-			{% if torrents %}
+			{% if not torrents %}
 				<p>No torrents in queue</p>
 			{% else %}
 				<table class="table table-bordered table-striped table-hover">
@@ -9,7 +9,6 @@
 						<tr>
 							<th>#</th>
 							<th>Name</th>
-							<th>Added</th>
 							<th>Last Update</th>
 							<th>Status</th>
 						</tr>
