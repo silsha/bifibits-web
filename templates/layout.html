@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-	<title>Bifi Interface</title>
+    <title>Bifi Interface</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
 </head>
 <body>
-	{% block body %}{% endblock %}
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="../">BiFiBits</a>
+                <div class="nav-collapse collapse" id="main-menu">
+                    <ul class="nav" id="main-menu-left">
+                        <li><a href="/">Status</a></li>
+                        <li><a href="/add">Add Links</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 70px;">
+        <header class="jumbotron subhead" id="overview">
+            <div class="row">
+                <div class="span12">
+                    <h1>BiFiBits</h1>
+                    <span class="lead">Om nom nom.</span>
+                </div>
+            </div>
+        </header>
+        <hr>
+        <section id="content">
+            {% block body %}{% endblock %}
+        </section>
+    </div>
 </body>
 </html>

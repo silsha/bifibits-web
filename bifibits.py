@@ -23,7 +23,9 @@ def teardown_request(exception):
 
 @app.route('/')
 def index():
-	return render_template('index.html');
+	cur = g.db.execute('select id, name, status, lastupdate from torrents order by id')
+	torrents = [dict(id=row[0], name=row[1], status=row[2], lastupdate=row[3]) for row in cur.fetchall()]
+	return render_template('index.html', torrents=torrents)
 
 if __name__ == '__main__':
     app.run()

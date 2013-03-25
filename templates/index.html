@@ -1,4 +1,33 @@
 {% extends "layout.html" %}
 	{% block body %}
-		<h1>HALLO</h1>
+		<h1>Status</h1>
+			{% if torrents %}
+				<p>No torrents in queue</p>
+			{% else %}
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Added</th>
+							<th>Last Update</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for torent in torrents %}
+						<tr>
+							<td>torrent.id</td>
+							<td>{% if torrent.name %}
+								{{ torrent.name }}
+							{% else %}
+								Unbekannt
+							{% endif %}</td>
+							<td>{{torrent.lastupdate}}</td>
+							<td>{{ torrent.status }}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+		  {% endif %}
 	{% endblock %}
