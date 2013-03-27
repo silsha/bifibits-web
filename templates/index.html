@@ -9,6 +9,8 @@
 						<tr>
 							<th>#</th>
 							<th>Name</th>
+							<th>Size</th>
+							<th>Added</th>
 							<th>Last Update</th>
 							<th>Status</th>
 						</tr>
@@ -17,12 +19,10 @@
 					{% for torrent in torrents %}
 						<tr>
 							<td>{{torrent.id}}</td>
-							<td>{% if torrent.name %}
-								{{ torrent.name }}
-							{% else %}
-								Unbekannt
-							{% endif %}</td>
-							<td>{{torrent.lastupdate}}</td>
+							<td>{% if torrent.name %}{{ torrent.name }}{% else %}Unbekannt{% endif %}</td>
+							<td>{% if torrent.size %}{{ torrent.size }}{% else %}Dunno.{% endif %}</td>
+							<td>{{torrent.added_time}}</td>
+							<td>{% if torrent.last_update %}{{torrent.last_update}}{% else %}Noch nie{%endif%}</td>
 							<td>{{ torrent.status }}</td>
 						</tr>
 					{% endfor %}
